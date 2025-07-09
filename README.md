@@ -2,9 +2,9 @@
 
 This is the user-facing interface for the Real-Time Power Forecast project. It's a responsive, static web application built with vanilla HTML, CSS, and JavaScript, designed to provide a clean and intuitive experience for interacting with the predictive backend.
 
-**Live Demo:** [[https://your-vercel-app-url.vercel.app](https://real-time-load-curve-dashboard-rag.vercel.app/)]([https://your-vercel-app-url.vercel.app](https://real-time-load-curve-dashboard-rag.vercel.app/))  
+**Live Demo:** (https://real-time-load-curve-dashboard-rag.vercel.app/)
 
-![Project Screenshot]([https://raw.githubusercontent.com/spandankvaidya/your-repo-name/main/demo.png](https://github.com/spandankvaidya/Real-time_Load-curve_Dashboard_RAG-frontend/blob/main/RTLCDR.png))  <!-- 👈 **IMPORTANT:** Add a screenshot of your project named `demo.png` to your repo and update this link -->
+([https://raw.githubusercontent.com/spandankvaidya/your-repo-name/main/demo.png](https://github.com/spandankvaidya/Real-time_Load-curve_Dashboard_RAG-frontend/blob/main/RTLCDR.png)) 
 
 ## Features
 
@@ -20,7 +20,6 @@ This is the user-facing interface for the Real-Time Power Forecast project. It's
 - **CSS3** (with Flexbox for responsive layouts)
 - **JavaScript (ES6+)**
 - **[Flatpickr.js](https://flatpickr.js.org/):** For the lightweight and powerful date picker.
-- **[Font Awesome](https://fontawesome.com/):** For UI icons.
 - **Hosting:** Deployed on **[Vercel](https://vercel.com/)**.
 
 ## ✍️ Author
