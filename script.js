@@ -127,12 +127,13 @@ document.addEventListener("DOMContentLoaded", () => {
            String(date.getDate()).padStart(2, '0');
   }
 
-  // === Flatpickr ===
-  flatpickr(datePickerInput, {
+flatpickr(datePickerInput, {
     dateFormat: "Y-m-d",
     enable: testDates,
     monthSelectorType: "static",
-    defaultDate: "2017-01-01", // <<<--- ADD THIS LINE
+    onReady: function(selectedDates, dateStr, instance) {
+      instance.jumpToDate("2017-01");
+    },
     onChange: (selectedDates, dateStr) => {
       selectedDate = dateStr;
       confirmDateBtn.disabled = !dateStr;
@@ -147,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dayElem.classList.add("test-date");
       }
     }
-  });
+});
 
 
   // =======================================================
@@ -209,12 +210,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Event listener for opening the chatbot
+  // --- REPLACE WITH THIS ---
+  // Event listener for opening/closing the chatbot (Toggle functionality)
   chatbotIcon.addEventListener("click", () => {
-    chatbotDialog.classList.remove("hidden");
-    // Add the initial welcome message only if it's the first time opening
-    if (chatMessages.children.length === 0) {
-      appendMessage("Hello! I'm your power grid assistant. Select a date from 2017 to start the prediction test, and don't hesitate to ask me any questions!", 'bot');
+    // Check if the dialog is currently hidden
+    const isHidden = chatbotDialog.classList.contains("hidden");
+
+    if (isHidden) {
+      // If it's hidden, show it
+      chatbotDialog.classList.remove("hidden");
+      // And add the welcome message if it's the very first time
+      if (chatMessages.children.length === 0) {
+        appendMessage("Hello! I'm the Power Grid Assistant. Pick a date from the year 2017 to start the load curve prediction dashboard! Don't hesitate to ask me any questions!", 'bot');
+      }
+    } else {
+      // If it's visible, hide it
+      chatbotDialog.classList.add("hidden");
     }
   });
 
