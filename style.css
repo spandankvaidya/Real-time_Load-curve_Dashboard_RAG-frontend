@@ -157,11 +157,35 @@ footer button:hover {
   background-color: #0056b3;
 }
 
+/* --- REPLACE WITH THIS --- */
 footer {
+  height: 10vh;
+  background-color: #1e1e2f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* This pushes items apart */
+  padding: 0 40px;                 /* Adds space on the left and right */
   z-index: 5;
   position: relative;
 }
+/* --- ADD THESE NEW RULES AT THE END OF THE FILE --- */
+.footer-credit {
+  font-size: 14px;
+  color: #c0c0c0; /* A light gray for the "Made by" text */
+}
 
+.footer-credit a {
+  color: #fff; /* Make the link white */
+  font-weight: bold;
+  text-decoration: none; /* Remove the default underline */
+  transition: color 0.2s ease;
+}
+
+.footer-credit a:hover {
+  color: #a0a0ff; /* A nice light blue for the hover effect */
+  text-decoration: underline; /* Add underline on hover for clarity */
+}
 #date-picker-container {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
