@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     chatbotDialog.classList.remove("hidden");
     // Add the initial welcome message only if it's the first time opening
     if (chatMessages.children.length === 0) {
-      appendMessage("Hello! I'm the Power Grid Assistant. Ask me anything about the documents I've been trained on.", 'bot');
+      appendMessage("Hello! I'm your power grid assistant. Select a date from 2017 to start the prediction test, and don't hesitate to ask me any questions!", 'bot');
     }
   });
 
