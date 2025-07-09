@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // === NEW AND REVISED CHATBOT LOGIC
   // =======================================================
 
-  const backendUrl = "https://real-time-load-curve-dashboard-rag.onrender.com/";
+  const backendUrl = "https://real-time-load-curve-dashboard-rag.onrender.com";
 
   // Function to add a message to the chat window
   function appendMessage(text, sender, isThinking = false) {
