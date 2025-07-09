@@ -97,17 +97,27 @@ main {
 
 #chatbot-dialog {
   position: fixed;
-  bottom: 100px;
+  bottom: 20px; /* Adjusted for better spacing */
   right: 20px;
-  width: 200px;  /* Reduced from 350px */
-  height: 320px; /* Reduced from 500px */
+  
+  /* --- Responsive Sizing with Constraints --- */
+  width: 90vw;           /* On mobile, be 90% of the screen width */
+  height: 70vh;          /* On mobile, be 70% of the screen height */
+
+  min-width: 280px;        /* But never get smaller than 280px wide */
+  max-width: 380px;        /* And never get wider than 380px */
+  
+  min-height: 300px;       /* Never get shorter than 300px */
+  max-height: 500px;       /* And never get taller than 500px */
+
+  /* --- Other Styles (Unchanged) --- */
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   z-index: 11;
-  display: flex; /* Use flexbox for layout */
+  display: flex;
   flex-direction: column;
-  overflow: hidden; /* Prevent content from spilling */
+  overflow: hidden;
   transition: opacity 0.3s, transform 0.3s;
 }
 
