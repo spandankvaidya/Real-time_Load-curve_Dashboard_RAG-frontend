@@ -17,9 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatInput = document.getElementById("chat-input");
   const sendBtn = document.getElementById("send-btn");
 
-  // === State Variables ===
   let selectedDate = null;
-
+  let isTestRunning = false; // <<<--- ADD THIS LINE
   // === Date sets ===
   const trainingDates = [
     "2017-01-01", "2017-01-02", "2017-01-03", "2017-01-04", 
@@ -126,7 +125,34 @@ document.addEventListener("DOMContentLoaded", () => {
            String(date.getMonth() + 1).padStart(2, '0') + '-' +
            String(date.getDate()).padStart(2, '0');
   }
+  // Function to terminate a test and reset the UI
+  function terminateTest() {
+    // 1. Stop the dashboard by clearing the iframe source
+    iframe.src = '';
 
+    // 2. Hide the dashboard frame and date block
+    iframe.classList.add("hidden");
+    dateBlock.classList.add("hidden");
+
+    // 3. Bring back the wallpaper
+    wallpaper.style.display = 'block'; // Make sure it's not display:none
+    // Use a timeout to ensure the display property is set before changing opacity
+    setTimeout(() => {
+        wallpaper.classList.remove("fade-out");
+        wallpaper.classList.add("fade-in");
+    }, 10);
+
+    // 4. Reset the button to its initial state
+    startBtn.textContent = "Start Test";
+    startBtn.classList.remove("terminate-btn");
+    startBtn.disabled = false; // Re-enable it
+
+    // 5. Update the application state
+    isTestRunning = false;
+
+    // 6. Ask user to choose a new date immediately
+    calendarModal.classList.remove("hidden");
+  }
 flatpickr(datePickerInput, {
     dateFormat: "Y-m-d",
     enable: testDates,
@@ -241,31 +267,33 @@ flatpickr(datePickerInput, {
       sendMessage();
     }
   });
-  
 
-  // =======================================================
-  // === EXISTING LOGIC (Slightly modified)
-  // =======================================================
-
-  // === Start Test (open calendar) - REMOVED chatbotReady check ===
   startBtn.addEventListener("click", () => {
-    calendarModal.classList.remove("hidden");
+    if (isTestRunning) {
+      // If a test is running, the button's job is to terminate it.
+      terminateTest();
+    } else {
+      // If no test is running, the button's job is to open the calendar.
+      calendarModal.classList.remove("hidden");
+    }
   });
-
   // === Close calendar ===
   closeDateBtn.addEventListener("click", () => {
     calendarModal.classList.add("hidden");
   });
-
-  // === Confirm date + Start Test (No changes here) ===
-  confirmDateBtn.addEventListener("click", () => {
+  
+ confirmDateBtn.addEventListener("click", () => {
     if (!selectedDate) {
       alert("Please select a valid test date.");
       return;
     }
     calendarModal.classList.add("hidden");
-    startBtn.textContent = "✅ Test Running";
-    startBtn.disabled = true;
+    
+    // --- MODIFY THE FOLLOWING LINES ---
+    startBtn.textContent = "❌ Terminate Test"; // New text
+    startBtn.classList.add("terminate-btn");    // Add our new red style
+    startBtn.disabled = false;                  // Make sure it's clickable!
+    isTestRunning = true;                       // UPDATE THE STATE
 
     const dashUrl = `${backendUrl}/dashboard/${selectedDate}`;
     console.log("Loading Dash app at:", dashUrl);
