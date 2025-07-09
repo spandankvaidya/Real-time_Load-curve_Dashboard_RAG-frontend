@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9f9f9;
@@ -12,7 +11,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 header, footer {
   height: 10vh;
   background-color: #1e1e2f;
@@ -21,7 +19,6 @@ header, footer {
   align-items: center;
   justify-content: center;
 }
-
 main {
   height: 80vh;
   position: relative;
@@ -31,8 +28,6 @@ main {
   align-items: center;
   justify-content: center;
 }
-
-
 #wallpaper {
   background: url('background.jpg') center/cover no-repeat;
   width: 100%;
@@ -41,16 +36,13 @@ main {
   z-index: 1;
   transition: opacity 1s ease-in-out;
 }
-
 .fade-out {
   opacity: 0;
   pointer-events: none;
 }
-
 .fade-in {
   opacity: 1;
 }
-
 #dashboard-frame {
   width: 85%;
   height: 100%;
@@ -62,9 +54,8 @@ main {
   position: relative;
   z-index: 2;
   transition: all 1s ease-in-out;
-  overflow: hidden; /* Prevents scrollbar inside iframe */
+  overflow: hidden; 
 }
-
 #date-block {
   text-align: center;
   font-size: 20px;
@@ -74,11 +65,9 @@ main {
   z-index: 2;
   position: relative;
 }
-
 .hidden {
   display: none;
 }
-
 #chatbot-icon {
   position: fixed;
   bottom: 20px;
@@ -86,7 +75,6 @@ main {
   z-index: 10;
   cursor: pointer;
 }
-
 #chatbot-icon img {
   width: 60px;
   height: 60px;
@@ -94,23 +82,21 @@ main {
   border: 2px solid #444;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
-
 #chatbot-dialog {
   position: fixed;
   bottom: 100px;
   right: 20px;
   
-  /* --- Responsive Sizing with Constraints --- */
-  width: 90vw;           /* On mobile, be 90% of the screen width */
-  height: 70vh;          /* On mobile, be 70% of the screen height */
+  /*Responsive Sizing with Constraints*/
+  width: 90vw;         
+  height: 70vh;         
 
-  min-width: 280px;        /* But never get smaller than 280px wide */
-  max-width: 380px;        /* And never get wider than 380px */
+  min-width: 280px;        
+  max-width: 380px;        
   
-  min-height: 300px;       /* Never get shorter than 300px */
-  max-height: 500px;       /* And never get taller than 500px */
+  min-height: 300px;       
+  max-height: 500px;     
 
-  /* --- Other Styles (Unchanged) --- */
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
@@ -120,16 +106,13 @@ main {
   overflow: hidden;
   transition: opacity 0.3s, transform 0.3s;
 }
-
 #chatbot-dialog.visible {
   display: block;
 }
-
 .chatbox-content {
   font-size: 14px;
   color: #333;
 }
-
 .chatbox-content button {
   margin-top: 15px;
   padding: 8px 16px;
@@ -140,6 +123,92 @@ main {
   border-radius: 6px;
   cursor: pointer;
 }
+#chatbot-dialog.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none; 
+}
+.chatbot-header {
+  background-color: #1e1e2f;
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+.chatbot-header h5 {
+  margin: 0;
+  font-size: 16px;
+}
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+}
+.chat-messages {
+  flex-grow: 1;
+  padding: 15px;
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.message {
+  padding: 10px 15px;
+  border-radius: 18px;
+  max-width: 80%;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+.message.user {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end; 
+  border-bottom-right-radius: 4px;
+}
+.message.bot {
+  background-color: #f1f0f0;
+  color: #333;
+  align-self: flex-start; 
+  border-bottom-left-radius: 4px;
+}
+.message.bot.thinking {
+  color: #888;
+  font-style: italic;
+}
+.chat-input-area {
+  display: flex;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+}
+#chat-input {
+  flex-grow: 1;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+#send-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+#send-btn:hover {
+  background-color: #0056b3;
+}
 footer button {
   padding: 12px 24px;
   font-size: 16px;
@@ -147,44 +216,50 @@ footer button {
   background-color: #007bff;
   color: white;
   border-radius: 8px;
-  cursor: pointer;  /* <-- THIS enables pointer cursor */
+  cursor: pointer; 
   transition: 0.3s ease;
   z-index: 10;
   position: relative;
 }
-
 footer button:hover {
   background-color: #0056b3;
 }
-
-/* --- REPLACE WITH THIS --- */
 footer {
   height: 10vh;
   background-color: #1e1e2f;
   color: white;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* This pushes items apart */
-  padding: 0 40px;                 /* Adds space on the left and right */
-  z-index: 5;
-  position: relative;
+  justify-content: center;   
+  position: relative;        
+  padding: 0 20px;           
 }
-/* --- ADD THESE NEW RULES AT THE END OF THE FILE --- */
 .footer-credit {
+  position: absolute; 
+  left: 40px;         
+  top: 50%;          
+  transform: translateY(-50%); /
   font-size: 14px;
-  color: #c0c0c0; /* A light gray for the "Made by" text */
+  color: #c0c0c0;
 }
-
 .footer-credit a {
-  color: #fff; /* Make the link white */
+  color: #fff; 
   font-weight: bold;
-  text-decoration: none; /* Remove the default underline */
+  text-decoration: none; 
   transition: color 0.2s ease;
 }
-
 .footer-credit a:hover {
-  color: #a0a0ff; /* A nice light blue for the hover effect */
-  text-decoration: underline; /* Add underline on hover for clarity */
+  color: #a0a0ff;
+  text-decoration: underline; 
+}
+
+footer button.terminate-btn {
+  background-color: #dc3545; 
+  border-color: #dc3545;
+}
+footer button.terminate-btn:hover {
+  background-color: #c82333; 
+  border-color: #bd2130;
 }
 #date-picker-container {
   position: absolute; top: 50%; left: 50%;
@@ -201,7 +276,6 @@ footer {
 .test-date { background:#d4edda!important; }
 .flatpickr-day.disabled { background:#eee!important; }
 
-/* Calendar modal behavior */
 #calendar-modal {
   position: fixed;
   top: 0; left: 0;
@@ -214,11 +288,9 @@ footer {
   align-items: center;
   z-index: 1000;
 }
-
 #calendar-modal.hidden {
   display: none;
 }
-
 .modal-content {
   background: white;
   padding: 20px 30px;
@@ -226,21 +298,18 @@ footer {
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
   text-align: center;
 }
-
 #date-picker-legend {
   display: flex;
   justify-content: center;
   gap: 16px;
   margin-bottom: 16px;
 }
-
 .legend-item {
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 14px;
 }
-
 .legend-color {
   width: 16px;
   height: 16px;
@@ -259,130 +328,4 @@ footer {
 .flatpickr-day.test-date {
   background-color: lightgreen !important;
   color: black;
-}
-/*
-#chatbot-dialog {
-  position: fixed;
-  bottom: 100px;
-  right: 20px;
-  width: 350px; 
-  height: 500px; 
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  z-index: 11;
-  display: flex; 
-  flex-direction: column;
-  overflow: hidden; 
-  transition: opacity 0.3s, transform 0.3s;
-}
-*/
-#chatbot-dialog.hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none; /* Make it unclickable when hidden */
-}
-
-.chatbot-header {
-  background-color: #1e1e2f;
-  color: white;
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-}
-
-.chatbot-header h5 {
-  margin: 0;
-  font-size: 16px;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  line-height: 1;
-}
-
-.chat-messages {
-  flex-grow: 1;
-  padding: 15px;
-  overflow-y: auto; /* Enable scrolling for messages */
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.message {
-  padding: 10px 15px;
-  border-radius: 18px;
-  max-width: 80%;
-  line-height: 1.4;
-  word-wrap: break-word;
-}
-
-.message.user {
-  background-color: #007bff;
-  color: white;
-  align-self: flex-end; /* Align user messages to the right */
-  border-bottom-right-radius: 4px;
-}
-
-.message.bot {
-  background-color: #f1f0f0;
-  color: #333;
-  align-self: flex-start; /* Align bot messages to the left */
-  border-bottom-left-radius: 4px;
-}
-
-.message.bot.thinking {
-  color: #888;
-  font-style: italic;
-}
-
-
-.chat-input-area {
-  display: flex;
-  border-top: 1px solid #ddd;
-  padding: 10px;
-}
-
-#chat-input {
-  flex-grow: 1;
-  border: none;
-  padding: 10px;
-  font-size: 14px;
-  outline: none;
-}
-
-#send-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s;
-}
-
-#send-btn:hover {
-  background-color: #0056b3;
-}
-/* --- ADD THESE NEW RULES --- */
-footer button.terminate-btn {
-  background-color: #dc3545; /* A standard 'danger' red */
-  border-color: #dc3545;
-}
-
-footer button.terminate-btn:hover {
-  background-color: #c82333; /* A darker red for the hover state */
-  border-color: #bd2130;
 }
