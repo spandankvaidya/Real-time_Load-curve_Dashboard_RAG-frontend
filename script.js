@@ -127,11 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
            String(date.getDate()).padStart(2, '0');
   }
 
-  // === Flatpickr (No changes needed) ===
+  // === Flatpickr ===
   flatpickr(datePickerInput, {
     dateFormat: "Y-m-d",
     enable: testDates,
     monthSelectorType: "static",
+    defaultDate: "2017-01-01", // <<<--- ADD THIS LINE
     onChange: (selectedDates, dateStr) => {
       selectedDate = dateStr;
       confirmDateBtn.disabled = !dateStr;
