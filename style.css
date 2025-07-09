@@ -226,22 +226,23 @@ footer {
   background-color: lightgreen !important;
   color: black;
 }
+/*
 #chatbot-dialog {
   position: fixed;
   bottom: 100px;
   right: 20px;
-  width: 350px; /* A bit wider */
-  height: 500px; /* Taller for chat history */
+  width: 350px; 
+  height: 500px; 
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   z-index: 11;
-  display: flex; /* Use flexbox for layout */
+  display: flex; 
   flex-direction: column;
-  overflow: hidden; /* Prevent content from spilling */
+  overflow: hidden; 
   transition: opacity 0.3s, transform 0.3s;
 }
-
+*/
 #chatbot-dialog.hidden {
   opacity: 0;
   transform: translateY(20px);
