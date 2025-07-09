@@ -97,7 +97,7 @@ main {
 
 #chatbot-dialog {
   position: fixed;
-  bottom: 20px; /* Adjusted for better spacing */
+  bottom: 60px; /* Adjusted for better spacing */
   right: 20px;
   
   /* --- Responsive Sizing with Constraints --- */
