@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // === Element Selectors (Old ones are kept) ===
   const startBtn = document.getElementById("startBtn");
   const chatbotIcon = document.getElementById("chatbot-icon");
   const chatbotDialog = document.getElementById("chatbot-dialog");
@@ -10,16 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const iframe = document.getElementById("dashboard-frame");
   const wallpaper = document.getElementById("wallpaper");
   const dateBlock = document.getElementById("date-block");
-
-  // === NEW Chatbot Element Selectors ===
   const closeChatbotBtn = document.getElementById("closeChatbotBtn");
   const chatMessages = document.getElementById("chat-messages");
   const chatInput = document.getElementById("chat-input");
   const sendBtn = document.getElementById("send-btn");
 
   let selectedDate = null;
-  let isTestRunning = false; // <<<--- ADD THIS LINE
-  // === Date sets ===
+  let isTestRunning = false; 
+  
+  // Date sets
   const trainingDates = [
     "2017-01-01", "2017-01-02", "2017-01-03", "2017-01-04", 
     "2017-01-06", "2017-01-07", "2017-01-08", "2017-01-09", 
@@ -127,32 +125,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // Function to terminate a test and reset the UI
   function terminateTest() {
-    // 1. Stop the dashboard by clearing the iframe source
+    // Stop the dashboard by clearing the iframe source
     iframe.src = '';
-
-    // 2. Hide the dashboard frame and date block
+    // Hide the dashboard frame and date block
     iframe.classList.add("hidden");
     dateBlock.classList.add("hidden");
-
-    // 3. Bring back the wallpaper
-    wallpaper.style.display = 'block'; // Make sure it's not display:none
-    // Use a timeout to ensure the display property is set before changing opacity
+    // Bring back the wallpaper
+    wallpaper.style.display = 'block'; 
+    // timeout to ensure the display property is set before changing opacity
     setTimeout(() => {
         wallpaper.classList.remove("fade-out");
         wallpaper.classList.add("fade-in");
     }, 10);
-
-    // 4. Reset the button to its initial state
+    // Reset the button to its initial state
     startBtn.textContent = "Start Test";
     startBtn.classList.remove("terminate-btn");
     startBtn.disabled = false; // Re-enable it
-
-    // 5. Update the application state
+    // Update the application state
     isTestRunning = false;
-
-    // 6. Ask user to choose a new date immediately
+    // Ask user to choose a new date immediately
     calendarModal.classList.remove("hidden");
   }
+  
 flatpickr(datePickerInput, {
     dateFormat: "Y-m-d",
     enable: testDates,
@@ -175,11 +169,6 @@ flatpickr(datePickerInput, {
       }
     }
 });
-
-
-  // =======================================================
-  // === NEW AND REVISED CHATBOT LOGIC
-  // =======================================================
 
   const backendUrl = "https://real-time-load-curve-dashboard-rag.onrender.com";
 
@@ -220,8 +209,6 @@ flatpickr(datePickerInput, {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      
-      // Remove "thinking..." message and add the real answer
       thinkingMessage.remove();
       appendMessage(data.answer, 'bot');
 
@@ -236,7 +223,6 @@ flatpickr(datePickerInput, {
     }
   }
 
-  // --- REPLACE WITH THIS ---
   // Event listener for opening/closing the chatbot (Toggle functionality)
   chatbotIcon.addEventListener("click", () => {
     // Check if the dialog is currently hidden
@@ -277,7 +263,7 @@ flatpickr(datePickerInput, {
       calendarModal.classList.remove("hidden");
     }
   });
-  // === Close calendar ===
+  // Close calendar 
   closeDateBtn.addEventListener("click", () => {
     calendarModal.classList.add("hidden");
   });
@@ -288,12 +274,10 @@ flatpickr(datePickerInput, {
       return;
     }
     calendarModal.classList.add("hidden");
-    
-    // --- MODIFY THE FOLLOWING LINES ---
-    startBtn.textContent = "❌ Terminate Test"; // New text
-    startBtn.classList.add("terminate-btn");    // Add our new red style
-    startBtn.disabled = false;                  // Make sure it's clickable!
-    isTestRunning = true;                       // UPDATE THE STATE
+    startBtn.textContent = "Terminate Test"; 
+    startBtn.classList.add("terminate-btn");    
+    startBtn.disabled = false;                  
+    isTestRunning = true;                       
 
     const dashUrl = `${backendUrl}/dashboard/${selectedDate}`;
     console.log("Loading Dash app at:", dashUrl);
@@ -307,5 +291,4 @@ flatpickr(datePickerInput, {
       dateBlock.classList.remove("hidden");
     }, 1000);
   });
-
 });
