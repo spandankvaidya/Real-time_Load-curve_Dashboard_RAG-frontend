@@ -233,7 +233,7 @@ flatpickr(datePickerInput, {
       chatbotDialog.classList.remove("hidden");
       // And add the welcome message if it's the very first time
       if (chatMessages.children.length === 0) {
-        appendMessage("Hello! I'm the Power Grid Assistant. Pick a date from the year 2017 to start the load curve prediction dashboard! Don't hesitate to ask me any questions!", 'bot');
+        appendMessage("Hello! I'm Volta ⚡, your friendly energy assistant. I'm here to guide you through this project, which predicts real-time power usage using a LightGBM model trained on 2017 data. To get started, just click the 'Start Test' button below to pick a date. If you're curious about anything, just ask me!", 'bot');
       }
     } else {
       // If it's visible, hide it
