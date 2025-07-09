@@ -35,6 +35,7 @@ This is the user-facing interface for the Real-Time Power Forecast project. It's
     <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
   </a>
 </div>
+
 ## ✍️ Author
 
 -   **spandankvaidya** - [GitHub Profile](https://github.com/spandankvaidya)
