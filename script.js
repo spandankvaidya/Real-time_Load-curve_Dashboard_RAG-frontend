@@ -287,7 +287,6 @@ flatpickr(datePickerInput, {
       wallpaper.style.display = "none";
       iframe.src = dashUrl;
       iframe.classList.remove("hidden");
-      dateBlock.textContent = `📅 Forecast for: ${selectedDate}`;
       dateBlock.classList.remove("hidden");
     }, 1000);
   });
