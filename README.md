@@ -13,7 +13,7 @@ This is the user-facing interface for the Real-Time Power Forecast project. It's
 - **AI Assistant "Jolt"**: A fully integrated chatbot UI that communicates with the backend's Groq-powered LLM, allowing users to ask questions about the project and power grids.
 - **Polished & Responsive UI:** The entire interface, including the footer and chatbot window, is designed to be responsive and look great on desktop.
 
-## 🛠️ Tech Stack & Tools
+## Tech Stack & Tools
 
 <div>
   <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
@@ -36,10 +36,10 @@ This is the user-facing interface for the Real-Time Power Forecast project. It's
   </a>
 </div>
 
-## ✍️ Author
+## Author
 
 -   **spandankvaidya** - [GitHub Profile](https://github.com/spandankvaidya)
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
