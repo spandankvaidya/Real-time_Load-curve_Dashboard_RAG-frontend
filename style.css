@@ -352,3 +352,13 @@ footer {
 #send-btn:hover {
   background-color: #0056b3;
 }
+/* --- ADD THESE NEW RULES --- */
+footer button.terminate-btn {
+  background-color: #dc3545; /* A standard 'danger' red */
+  border-color: #dc3545;
+}
+
+footer button.terminate-btn:hover {
+  background-color: #c82333; /* A darker red for the hover state */
+  border-color: #bd2130;
+}
