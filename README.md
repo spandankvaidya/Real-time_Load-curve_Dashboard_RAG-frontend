@@ -1,6 +1,6 @@
 # Real-Time Power Forecast Dashboard - Frontend
 
-This is the user-facing interface for the Real-Time Power Forecast project. It's a responsive, static web application built with vanilla HTML, CSS, and JavaScript, designed to provide a clean and intuitive experience for interacting with the predictive backend.
+This is the user-facing interface for the Real-Time Power Forecast project. It's a responsive, static web application built with vanilla HTML, CSS, and JavaScript, designed to provide a clean and intuitive experience for interacting with the backend.
 
 **Live Demo:** (https://real-time-load-curve-dashboard-rag.vercel.app/)
 ![Project Screenshot](https://raw.githubusercontent.com/spandankvaidya/Real-time_Load-curve_Dashboard_RAG-frontend/main/RTLCDR.png)
@@ -8,10 +8,10 @@ This is the user-facing interface for the Real-Time Power Forecast project. It's
 ## Features
 
 - **Dynamic Dashboard Display:** Seamlessly embeds and displays the live Plotly Dash graph from the backend service via an `<iframe>`.
-- **Interactive Date Picker:** Utilizes Flatpickr.js to provide a beautiful and functional calendar, allowing users to select one of the 34 available test dates.
+- **Interactive Date Picker:** Utilizes Flatpickr.js to provide a functional calendar, allowing users to select one of the 34 available test dates.
 - **Start / Terminate Controls:** Users can initiate a test for a selected date and terminate the ongoing prediction at any time to choose a new one.
-- **AI Assistant "Volta"**: A fully integrated chatbot UI that communicates with the backend's Groq-powered LLM, allowing users to ask questions about the project and power grids.
-- **Polished & Responsive UI:** The entire interface, including the footer and chatbot window, is designed to be responsive and look great on both desktop and mobile devices.
+- **AI Assistant "Jolt"**: A fully integrated chatbot UI that communicates with the backend's Groq-powered LLM, allowing users to ask questions about the project and power grids.
+- **Polished & Responsive UI:** The entire interface, including the footer and chatbot window, is designed to be responsive and look great on desktop.
 
 ## 🛠️ Tech Stack & Tools
 
