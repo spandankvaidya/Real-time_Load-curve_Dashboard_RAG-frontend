@@ -99,13 +99,16 @@ main {
   position: fixed;
   bottom: 100px;
   right: 20px;
-  width: 320px;
+  width: 280px;  /* Reduced from 350px */
+  height: 400px; /* Reduced from 500px */
   background-color: #fff;
-  border-radius: 12px;
+  border-radius: 15px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  padding: 20px;
   z-index: 11;
-  display: none;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column;
+  overflow: hidden; /* Prevent content from spilling */
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 #chatbot-dialog.visible {
